@@ -31,7 +31,7 @@ class Library {
     return Library(
       contributionsCount: map['contributioons_count'],
       keywords: List<String>.from(map['keywords']), 
-      latestReleaseNumber: map['lates_release_number'],
+      latestReleaseNumber: map['latest_release_number'],
       dependentReposCount: map['dependent_repos_count'], 
       dependentsCount: map['dependents_count'], 
       description: map['description'], 

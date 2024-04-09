@@ -40,17 +40,22 @@ class _LibrariesListState extends State<LibrariesList>{
           itemCount: state.libraries.length,
           itemBuilder: (context,index){
             return CardWidget(color: Colors.yellow, children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [ Text(data[index].name!),
-                const SizedBox(height: 3,),
-                Row(children: [
-                  //Text(data[index].latestReleaseNumber != null ? data[index].latestReleaseNumber.toString() : ''),
-                  //Text(data[index].keywords != null ? data[index].keywords.join(',')  : ''),
-                  //Text(data[index].keywords?.join(',') ?? ''),
-                 ],)
-                ]
-                )  
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [ Text(data[index].name!),
+                  const SizedBox(height: 3,),
+                  Row(children: [
+                    Text(data[index].latestReleaseNumber != null ? data[index].latestReleaseNumber.toString() : ''),
+                    //Text(data[index].keywords != null ? data[index].keywords.join(',')  : ''),
+                    Text(data[index].keywords?.sublist(0,2).join(',') ?? '',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,),
+                   ],)
+                  ]
+                  ),
+              )  
             ]);
           }),
       );

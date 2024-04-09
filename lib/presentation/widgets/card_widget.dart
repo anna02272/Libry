@@ -4,7 +4,7 @@ class CardWidget extends StatelessWidget {
   const CardWidget({super.key, required this.color, required this.children});
 
   final Color color;
-  final List<Widget> children;
+  final Widget children;
 
   @override
   Widget build(BuildContext context) {
