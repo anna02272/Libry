@@ -19,7 +19,7 @@ class LibrariesBloc extends Bloc<LibrariesEvent,LibrariesState>{
       async{
         emit(LibrariesLoading());
         try{
-          final libraries= await _librariesRepository.getCurrentLibraires();
+          final libraries= await _librariesRepository.getCurrentLibraires(event.platform);
           emit(LibrariesSuccess(libraries));
         }
         catch (e){

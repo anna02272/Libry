@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/libraries_bloc/libraries_bloc.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/card_widget.dart';
+import 'package:flutter_internship_2024_app/presentation/widgets/libraries_widgets/libraries_card_content.dart';
 
 class LibrariesList extends StatefulWidget{
-  const LibrariesList({super.key});
+  final platform;
+
+  const LibrariesList({super.key, this.platform});
 
   @override
   State<LibrariesList> createState() {
@@ -15,13 +18,14 @@ class LibrariesList extends StatefulWidget{
 }
 
 class _LibrariesListState extends State<LibrariesList>{
-
-
+  String? platfromName;
+  
   @override
   void initState() {
   
     super.initState();
-    context.read<LibrariesBloc>().add(LibrairesFetched());
+    platfromName=widget.platform.name;
+    context.read<LibrariesBloc>().add(LibrairesFetched(platfromName!));
   }
 
   @override
@@ -34,30 +38,15 @@ class _LibrariesListState extends State<LibrariesList>{
     }  
 
     if(state is LibrariesSuccess){
-      final data= state.libraries;
+     
       return Center(
         child: ListView.builder(
           itemCount: state.libraries.length,
           itemBuilder: (context,index){
             return CardWidget(color: Colors.yellow, onTap: () {  },
             child:
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [ Text(data[index].name!),
-                  const SizedBox(height: 3,),
-                  Row(children: [
-                    Text(data[index].latestReleaseNumber != null ? data[index].latestReleaseNumber.toString() : ''),
-                    //Text(data[index].keywords != null ? data[index].keywords.join(',')  : ''),
-                    Text(data[index].keywords?.sublist(0,2).join(',') ?? '',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,),
-                   ],)
-                  ]
-                  ),
-              )  
-            );
+             LibrariesCardContet(library: state.libraries[index],),
+              );
           }),
       );
     }
