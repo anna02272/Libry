@@ -39,7 +39,8 @@ class _LibrariesListState extends State<LibrariesList>{
         child: ListView.builder(
           itemCount: state.libraries.length,
           itemBuilder: (context,index){
-            return CardWidget(color: Colors.yellow, children: [
+            return CardWidget(color: Colors.yellow, onTap: () {  },
+            child:
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -56,7 +57,7 @@ class _LibrariesListState extends State<LibrariesList>{
                   ]
                   ),
               )  
-            ]);
+            );
           }),
       );
     }
