@@ -1,17 +1,17 @@
 class Library {
 
-  final int contributionsCount;
-  final int dependentReposCount;
-  final int dependentsCount;
-  final String description;
-  final int forks;
-  final String homepage;
-  final List<String> keywords;
-  final String language;
-  final String latestDownloadUrl;
-  final String latestReleaseNumber;
-
-
+  final int? contributionsCount;
+  final int? dependentReposCount;
+  final int? dependentsCount;
+  final String? description;
+  final int? forks;
+  final String? homepage;
+  final List<String>? keywords;
+  final String? language;
+  final String? latestDownloadUrl;
+  final String? latestReleaseNumber;
+  final String? name;
+ final String? platform;
   Library({
     required this.contributionsCount,
     required this.dependentReposCount,
@@ -23,7 +23,27 @@ class Library {
     required this.language,
     required this.latestDownloadUrl,
     required this.latestReleaseNumber,
+    required this.name,
+    required this.platform,
   });
+
+  factory Library.fromMap(Map<String, dynamic> map){
+    return Library(
+      contributionsCount: map['contributioons_count'],
+      keywords: List<String>.from(map['keywords']), 
+      latestReleaseNumber: map['lates_release_number'],
+      dependentReposCount: map['dependent_repos_count'], 
+      dependentsCount: map['dependents_count'], 
+      description: map['description'], 
+      forks: map['forks'],
+      homepage: map['homepage'],
+      language: map['language'],
+      latestDownloadUrl: map['latest_download_url'],
+      name: map['name'],
+      platform: map['platform'],
+           
+    );
+  }
 
 //   {
 //   "contributions_count": 13,
