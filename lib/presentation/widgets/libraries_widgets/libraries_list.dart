@@ -35,21 +35,20 @@ class _LibrariesListState extends State<LibrariesList> {
           child: ListView.builder(
               itemCount: state.libraries.length,
               itemBuilder: (context, index) {
-                return Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                return CardWidget(
+                  color: Colors.yellow,
+                  onTap: () {
+                    // Define your onTap functionality here
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(data[index].name!),
-                      const SizedBox(
-                        height: 3,
-                      ),
-                      Row(
-                        children: [
-                          //Text(data[index].latestReleaseNumber != null ? data[index].latestReleaseNumber.toString() : ''),
-                          //Text(data[index].keywords != null ? data[index].keywords.join(',')  : ''),
-                          //Text(data[index].keywords?.join(',') ?? ''),
-                        ],
-                      )
-                    ]);
+                      const SizedBox(height: 3),
+                      // Add more widgets here as needed
+                    ],
+                  ),
+                );
               }),
         );
       }

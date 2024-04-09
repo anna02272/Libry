@@ -2,11 +2,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class SearchDataProvider {
-  Future<String?> searchLibraries(String? param) async {
+  Future<String> searchLibraries(String param) async {
     final apiKey = dotenv.env['API_KEY'];
 
-    if (param == null || param.isEmpty) {
-      return null;
+    if (param.isEmpty) {
+      return 'param is empty';
     }
     try {
       final res = await http.get(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_internship_2024_app/bloc/search_bloc/search_bloc.dart';
 
 class SearchInput extends StatefulWidget {
   const SearchInput({super.key});
@@ -32,6 +34,9 @@ class _SearchInputState extends State<SearchInput> {
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
+                onSubmitted: (searchText) {
+                  _submitSearch(context, searchText);
+                },
               ),
             ),
             GestureDetector(
@@ -47,5 +52,12 @@ class _SearchInputState extends State<SearchInput> {
         ),
       ),
     );
+  }
+
+  void _submitSearch(BuildContext context, String searchText) {
+    if (searchText.isNotEmpty) {
+      context.read<SearchBloc>().add(LibrariesSearched(searchText));
+    }
+    _controller.clear();
   }
 }
