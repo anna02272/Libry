@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/libraries_bloc/libraries_bloc.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/card_widget.dart';
+import 'package:flutter_internship_2024_app/presentation/widgets/libraries_widgets/libraries_card_content.dart';
 
 class LibrariesList extends StatefulWidget {
-  const LibrariesList({super.key});
+  final platform;
+
+  const LibrariesList({super.key, this.platform});
 
   @override
   State<LibrariesList> createState() {
@@ -13,10 +16,13 @@ class LibrariesList extends StatefulWidget {
 }
 
 class _LibrariesListState extends State<LibrariesList> {
+  String? platfromName;
+
   @override
   void initState() {
     super.initState();
-    context.read<LibrariesBloc>().add(LibrairesFetched());
+    platfromName = widget.platform.name;
+    context.read<LibrariesBloc>().add(LibrairesFetched(platfromName!));
   }
 
   @override
@@ -30,23 +36,15 @@ class _LibrariesListState extends State<LibrariesList> {
       }
 
       if (state is LibrariesSuccess) {
-        final data = state.libraries;
         return Center(
           child: ListView.builder(
               itemCount: state.libraries.length,
               itemBuilder: (context, index) {
                 return CardWidget(
                   color: Colors.yellow,
-                  onTap: () {
-                    // Define your onTap functionality here
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(data[index].name!),
-                      const SizedBox(height: 3),
-                      // Add more widgets here as needed
-                    ],
+                  onTap: () {},
+                  child: LibrariesCardContet(
+                    library: state.libraries[index],
                   ),
                 );
               }),
