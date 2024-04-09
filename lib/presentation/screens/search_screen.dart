@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/search_widgets/search_input_widget.dart';
+import 'package:flutter_internship_2024_app/presentation/widgets/search_widgets/search_list.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -26,29 +26,7 @@ class SearchScreen extends StatelessWidget {
         children: [
           SearchInput(),
           Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(17),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.search,
-                    size: 80,
-                    color: Color.fromRGBO(72, 75, 73, 1),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Enter search keyword in order to find packages you are looking for.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 23,
-                      color: Color.fromRGBO(72, 75, 73, 1),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            child: SearchList(),
           ),
         ],
       ),
