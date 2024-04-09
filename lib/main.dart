@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_internship_2024_app/bloc/bloc/platforms_bloc.dart';
+import 'package:flutter_internship_2024_app/bloc/libraries_bloc/libraries_bloc.dart';
+import 'package:flutter_internship_2024_app/data/libraries/data_provider/libraries_provider.dart';
+import 'package:flutter_internship_2024_app/data/libraries/repository/libraries_repository.dart';
 import 'package:flutter_internship_2024_app/data/platforms/data_provider/platforms_data_provider.dart';
 import 'package:flutter_internship_2024_app/data/platforms/repository/platforms_repository.dart';
+import 'package:flutter_internship_2024_app/presentation/screens/libraries_screen.dart';
 import 'package:flutter_internship_2024_app/presentation/screens/platforms_screen.dart';
 
 Future main() async {
@@ -19,9 +23,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // open to refactoring
     return RepositoryProvider(
-      create: (context) => PlatformsRepository(PlatformsDataProvider()),
+      create: (context) => LibrariesRepository(LibrariesProvider()),
       child: BlocProvider(
-        create: (context) => PlatformsBloc(context.read<PlatformsRepository>()),
+        create: (context) => LibrariesBloc(context.read<LibrariesRepository>()),
         child: MaterialApp(
           title: 'Package Manager App',
           theme: ThemeData.light().copyWith(
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
           ),
-          home: const PlatformsScreen(),
+          home: const LibrariesScreen(),
         ),
       ),
     );
