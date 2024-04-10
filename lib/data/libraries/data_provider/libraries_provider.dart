@@ -7,7 +7,7 @@ class LibrariesProvider{
     try{
       final res= await http.get(Uri.parse(
      
-       'https://libraries.io/api/search?q=grunt&platforms=$packageName&api_key=$apiKey',
+       'https://libraries.io/api/search?q=$packageName&api_key=$apiKey&sort=rank',
        
       ),
     );

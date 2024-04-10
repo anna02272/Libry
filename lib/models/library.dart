@@ -11,7 +11,8 @@ class Library {
   final String? latestDownloadUrl;
   final String? latestReleaseNumber;
   final String? name;
- final String? platform;
+  final String? platform;
+  final int? rank;
   Library({
     required this.contributionsCount,
     required this.dependentReposCount,
@@ -25,6 +26,7 @@ class Library {
     required this.latestReleaseNumber,
     required this.name,
     required this.platform,
+    required this.rank,
   });
 
   factory Library.fromMap(Map<String, dynamic> map){
@@ -41,6 +43,7 @@ class Library {
       latestDownloadUrl: map['latest_download_url'],
       name: map['name'],
       platform: map['platform'],
+      rank: map['rank'],
            
     );
   }

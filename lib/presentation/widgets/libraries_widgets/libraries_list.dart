@@ -43,7 +43,7 @@ class _LibrariesListState extends State<LibrariesList>{
         child: ListView.builder(
           itemCount: state.libraries.length,
           itemBuilder: (context,index){
-            return CardWidget(color: Colors.yellow, onTap: () {  },
+            return CardWidget(color: widget.platform.colorObj, onTap: () {  },
             child:
              LibrariesCardContet(library: state.libraries[index],),
               );
