@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/search_widgets/search_input_widget.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/search_widgets/search_list.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  late String searchText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +28,18 @@ class SearchScreen extends StatelessWidget {
           bottom: BorderSide(color: Color.fromRGBO(239, 245, 243, 1), width: 1),
         ),
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SearchInput(),
+          SearchInput(
+            onTextChanged: (text) {
+              setState(() {
+                searchText = text;
+              });
+            },
+          ),
           Expanded(
-            child: SearchList(),
+            child: SearchList(searchText: searchText),
           ),
         ],
       ),

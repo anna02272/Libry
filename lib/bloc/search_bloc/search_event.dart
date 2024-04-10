@@ -8,3 +8,5 @@ final class LibrariesSearched extends SearchEvent {
 
   LibrariesSearched(this.searchText);
 }
+
+final class ResetSearch extends SearchEvent {}

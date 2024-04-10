@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
           create: (context) => PlatformsRepository(PlatformsDataProvider()),
         ),
         RepositoryProvider(
-          create: (context) => (LibrariesRepository(LibrariesProvider())),
+          create: (context) => (LibrariesRepository(LibrariesProvider(),
+              PlatformsRepository(PlatformsDataProvider()))),
         ),
       ],
       child: MultiBlocProvider(

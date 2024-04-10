@@ -11,6 +11,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   SearchBloc(this._repository) : super(SearchInitial()) {
     on<LibrariesSearched>(_searchLibraries);
+    on<ResetSearch>(_resetSearchState);
   }
 
   void _searchLibraries(
@@ -23,5 +24,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     } catch (e) {
       emit(SearchFailure(e.toString()));
     }
+  }
+
+  void _resetSearchState(ResetSearch event, Emitter<SearchState> emit) {
+    emit(SearchInitial());
   }
 }

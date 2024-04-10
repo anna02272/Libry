@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/search_bloc/search_bloc.dart';
 
 class SearchInput extends StatefulWidget {
-  const SearchInput({super.key});
+  final ValueChanged<String>? onTextChanged;
+  const SearchInput({super.key, this.onTextChanged});
 
   @override
   State<SearchInput> createState() => _SearchInputState();
@@ -11,6 +12,13 @@ class SearchInput extends StatefulWidget {
 
 class _SearchInputState extends State<SearchInput> {
   final _controller = TextEditingController();
+  final _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +39,15 @@ class _SearchInputState extends State<SearchInput> {
               child: TextField(
                 autofocus: true,
                 controller: _controller,
+                focusNode: _focusNode,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
+                onChanged: (text) {
+                  if (widget.onTextChanged != null) {
+                    widget.onTextChanged!(text);
+                  }
+                },
                 onSubmitted: (searchText) {
                   _submitSearch(context, searchText);
                 },
@@ -42,6 +56,8 @@ class _SearchInputState extends State<SearchInput> {
             GestureDetector(
               onTap: () {
                 _controller.clear();
+                context.read<SearchBloc>().add(ResetSearch());
+                _focusNode.requestFocus();
               },
               child: const Icon(
                 Icons.close,
@@ -58,6 +74,5 @@ class _SearchInputState extends State<SearchInput> {
     if (searchText.isNotEmpty) {
       context.read<SearchBloc>().add(LibrariesSearched(searchText));
     }
-    _controller.clear();
   }
 }

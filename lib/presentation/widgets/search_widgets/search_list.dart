@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/search_bloc/search_bloc.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/card_widget.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/libraries_widgets/libraries_card_content.dart';
+import 'package:flutter_internship_2024_app/theme.dart';
 
 class SearchList extends StatefulWidget {
-  const SearchList({super.key});
+  final String searchText;
+  const SearchList({super.key, required this.searchText});
 
   @override
   State<SearchList> createState() => _SearchListState();
@@ -25,6 +27,8 @@ class _SearchListState extends State<SearchList>
       lowerBound: 0,
       upperBound: 1,
     );
+
+    context.read<SearchBloc>().add(ResetSearch());
   }
 
   @override
@@ -56,11 +60,12 @@ class _SearchListState extends State<SearchList>
               child: ListView.builder(
                 itemCount: (state as SearchSuccess).libraries.length,
                 itemBuilder: (context, index) {
+                  final library = state.libraries[index];
                   return CardWidget(
-                    color: Colors.black,
+                    color: library.colorObj,
                     onTap: () {},
                     child: LibrariesCardContet(
-                      library: state.libraries[index],
+                      library: library,
                     ),
                   );
                 },
@@ -81,8 +86,42 @@ class _SearchListState extends State<SearchList>
             child: CircularProgressIndicator(),
           );
         } else if (state is SearchFailure) {
-          return Center(
-            child: Text(state.errorMessage),
+          return Stack(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const Icon(
+                      Icons.error_outline,
+                      color: textColor,
+                      size: 60,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      state.errorMessage,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: 20,
+                right: 20,
+                child: FloatingActionButton(
+                  backgroundColor: themeSeedColor,
+                  onPressed: () {
+                    context
+                        .read<SearchBloc>()
+                        .add(LibrariesSearched(widget.searchText));
+                  },
+                  child: const Icon(Icons.refresh),
+                ),
+              ),
+            ],
           );
         } else {
           return Center(
@@ -90,16 +129,9 @@ class _SearchListState extends State<SearchList>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 state is SearchSuccess
-                    ? const Icon(
-                        Icons.emoji_nature_outlined,
-                        size: 80,
-                        color: Color.fromRGBO(72, 75, 73, 1),
-                      )
-                    : const Icon(
-                        Icons.search,
-                        size: 80,
-                        color: Color.fromRGBO(72, 75, 73, 1),
-                      ),
+                    ? const Icon(Icons.emoji_nature_outlined,
+                        size: 80, color: textColor)
+                    : const Icon(Icons.search, size: 80, color: textColor),
                 const SizedBox(height: 20),
                 Text(
                   state is SearchSuccess
@@ -108,7 +140,7 @@ class _SearchListState extends State<SearchList>
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 20,
-                    color: Color.fromRGBO(72, 75, 73, 1),
+                    color: textColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
