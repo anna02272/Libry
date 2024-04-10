@@ -13,7 +13,7 @@
       Widget build(BuildContext context) {
         bool position=MediaQuery.of(context).orientation == Orientation.portrait;
         double screenWidth = MediaQuery.of(context).size.width;
-        double remainigWidth= position ? screenWidth * 0.26 : screenWidth * 0.3;
+        double remainigWidth= position ? screenWidth * 0.25 : screenWidth * 0.3;
         double versionWidth= screenWidth *0.026;
         double nameWidth= screenWidth * 0.06;
         List<String>  keywords=[];
@@ -100,7 +100,7 @@
                     ]
                   ),
                  // SizedBox(width:  position ? screenWidth * 0.05 : screenWidth * 0.2),
-                  Row(
+                 /* Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -110,7 +110,7 @@
                       child: Icon(MdiIcons.heartOutline,size: 30,)
                       ),
                     ],
-                 )
+                 ) */
                 ],
               ),
                   
