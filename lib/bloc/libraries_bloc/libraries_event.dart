@@ -7,7 +7,5 @@ class LibrairesFetched extends LibrariesEvent {
   final String platform; 
 
   LibrairesFetched(this.platform);
-  
-  @override
-  List<Object?> get props => [platform];
+
 }

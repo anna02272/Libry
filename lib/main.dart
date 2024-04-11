@@ -7,7 +7,6 @@ import 'package:flutter_internship_2024_app/data/libraries/data_provider/librari
 import 'package:flutter_internship_2024_app/data/libraries/repository/libraries_repository.dart';
 import 'package:flutter_internship_2024_app/data/platforms/data_provider/platforms_data_provider.dart';
 import 'package:flutter_internship_2024_app/data/platforms/repository/platforms_repository.dart';
-import 'package:flutter_internship_2024_app/presentation/screens/libraries_screen.dart';
 import 'package:flutter_internship_2024_app/presentation/screens/platforms_screen.dart';
 import 'package:flutter_internship_2024_app/theme.dart';
 
