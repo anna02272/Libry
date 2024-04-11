@@ -37,14 +37,11 @@ class _PlatformsListState extends State<PlatformsList>
     super.dispose();
   }
 
-<<<<<<< HEAD
-  void _goToLibrariesPage(Platform platform){
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  LibrariesScreen(platform: platform,)));
-=======
   void _goToLibrariesPage(Platform platform) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const LibrariesScreen()));
->>>>>>> bd88ee04cc18c5acceffa83ecc34fc844a796eff
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => LibrariesScreen(
+              platform: platform,
+            )));
   }
 
   @override

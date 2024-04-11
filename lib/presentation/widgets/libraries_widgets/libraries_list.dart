@@ -41,7 +41,7 @@ class _LibrariesListState extends State<LibrariesList> {
               itemCount: state.libraries.length,
               itemBuilder: (context, index) {
                 return CardWidget(
-                  color: Colors.yellow,
+                  color: widget.platform.colorObj,
                   onTap: () {},
                   child: LibrariesCardContet(
                     library: state.libraries[index],
