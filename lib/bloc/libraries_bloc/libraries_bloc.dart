@@ -3,7 +3,6 @@ import 'package:flutter_internship_2024_app/data/libraries/repository/libraries_
 import 'package:flutter_internship_2024_app/models/library.dart';
 import 'package:flutter/foundation.dart';
 
-
 part 'libraries_event.dart';
 part 'libraries_state.dart';
 
@@ -17,8 +16,8 @@ class LibrariesBloc extends Bloc<LibrariesEvent,LibrariesState>{
           LibrairesFetched event,
           Emitter<LibrariesState> emit,)  
       async{
-        emit(LibrariesLoading());
         try{
+         emit(LibrariesLoading());
           final libraries= await _librariesRepository.getCurrentLibraires(event.platform);
           emit(LibrariesSuccess(libraries));
         }

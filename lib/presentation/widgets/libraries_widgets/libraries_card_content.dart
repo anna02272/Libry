@@ -72,8 +72,12 @@
                                   children: [
                                     Row( 
                                   children:[
-                                      Icon(MdiIcons.vectorLine ,color: textColor,),
-                                      Container(
+                                      Image.asset(
+                                        'assets/Conversion_path.png', // Putanja do vaše PNG ikone
+                                        width: 24, // Opciono: Možete postaviti širinu i visinu ikone
+                                        height: 24,
+                                      ),
+                                Container(
                                         width: screenWidth * 0.25,
                                         child: Text( library.latestReleaseNumber != null ? (
                                         library.latestReleaseNumber!.length >versionWidth ? '${library.latestReleaseNumber!.substring(0,versionWidth.toInt())}...' : library.latestReleaseNumber.toString() ): '', 
@@ -81,7 +85,7 @@
                                       ),
                                 ]),
                               SizedBox(width: screenWidth* 0.01,),
-                              Row(
+                                Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                      keywordsString == '' ?  SizedBox(): Icon( MdiIcons.tag ,color: textColor,size:  position ? screenWidth* 0.05 : screenWidth *0.03),
@@ -93,7 +97,7 @@
                                       ),
                                     ],
                                 ),
-                                  ],
+                               ],
                                 ),
                           ],
                         ),   
