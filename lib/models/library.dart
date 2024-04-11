@@ -13,6 +13,7 @@ class Library {
   final String? latestReleaseNumber;
   final String? name;
   final String? platform;
+  final int? rank;
   String? platformColor;
 
   Library(
@@ -28,6 +29,7 @@ class Library {
       required this.latestReleaseNumber,
       required this.name,
       required this.platform,
+      required this.rank,
       this.platformColor});
 
   factory Library.fromMap(Map<String, dynamic> map) {
@@ -44,12 +46,14 @@ class Library {
       latestDownloadUrl: map['latest_download_url'],
       name: map['name'],
       platform: map['platform'],
+      rank: map['rank'],
       platformColor: '',
     );
   }
   Color get colorObj => Color(
       int.parse(platformColor!.toUpperCase().replaceAll("#", ""), radix: 16) +
           0xFF000000);
+}
 
 //   {
 //   "contributions_count": 13,
@@ -100,4 +104,4 @@ class Library {
 //     },
 //    ]
 // }
-}
+
