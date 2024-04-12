@@ -78,7 +78,7 @@ class LibrariesCardContet extends StatelessWidget {
                                 24, // Opciono: Možete postaviti širinu i visinu ikone
                             height: 24,
                           ),
-                          Container(
+                          SizedBox(
                             width: screenWidth * 0.25,
                             child: Text(
                               library.latestReleaseNumber != null
@@ -98,7 +98,7 @@ class LibrariesCardContet extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             keywordsString == ''
-                                ? SizedBox()
+                                ? const SizedBox()
                                 : Icon(MdiIcons.tag,
                                     color: textColor,
                                     size: position
@@ -107,7 +107,7 @@ class LibrariesCardContet extends StatelessWidget {
                             SizedBox(
                               width: screenWidth * 0.01,
                             ),
-                            Container(
+                            SizedBox(
                               width: position
                                   ? screenWidth * 0.25
                                   : screenWidth * 0.5,

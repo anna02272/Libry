@@ -60,6 +60,8 @@ class _SearchListState extends State<SearchList>
             child: AnimatedBuilder(
               animation: _animationController,
               child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: (state as SearchSuccess).libraries.length,
                 itemBuilder: (context, index) {
                   final library = state.libraries[index];
@@ -91,31 +93,35 @@ class _SearchListState extends State<SearchList>
           return ErrorMessageWidget(
             errorMessage: state.errorMessage,
             refreshFunction: () {
-              context.read<SearchBloc>().add(LibrariesSearched(widget.searchText, widget.sort));
+              context
+                  .read<SearchBloc>()
+                  .add(LibrariesSearched(widget.searchText, widget.sort));
             },
           );
         } else {
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                state is SearchSuccess
-                    ? const Icon(Icons.emoji_nature_outlined,
-                        size: 80, color: textColor)
-                    : const Icon(Icons.search, size: 80, color: textColor),
-                const SizedBox(height: 20),
-                Text(
+          return SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
                   state is SearchSuccess
-                      ? 'There are no found packages for the entered search criteria!'
-                      : 'Enter search keyword in order to find packages you are looking for.',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: textColor,
-                    fontWeight: FontWeight.bold,
+                      ? const Icon(Icons.emoji_nature_outlined,
+                          size: 80, color: textColor)
+                      : const Icon(Icons.search, size: 80, color: textColor),
+                  const SizedBox(height: 20),
+                  Text(
+                    state is SearchSuccess
+                        ? 'There are no found packages for the entered search criteria!'
+                        : 'Enter search keyword in order to find packages you are looking for.',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         }
