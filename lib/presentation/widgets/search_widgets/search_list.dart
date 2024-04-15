@@ -75,11 +75,13 @@ class _SearchListState extends State<SearchList>
                 },
               ),
               builder: (context, child) {
-                return Opacity(
-                  opacity: _animationController.value,
-                  child: Transform.translate(
-                    offset: Offset(0, 100 * (1 - _animationController.value)),
-                    child: child,
+                return Center(
+                  child: Opacity(
+                    opacity: _animationController.value,
+                    child: Transform.translate(
+                      offset: Offset(0, 100 * (1 - _animationController.value)),
+                      child: child,
+                    ),
                   ),
                 );
               },
@@ -87,7 +89,13 @@ class _SearchListState extends State<SearchList>
           );
         } else if (state is SearchLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 250),
+                CircularProgressIndicator(),
+              ],
+            ),
           );
         } else if (state is SearchFailure) {
           return ErrorMessageWidget(
@@ -99,29 +107,28 @@ class _SearchListState extends State<SearchList>
             },
           );
         } else {
-          return SingleChildScrollView(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 180),
+                state is SearchSuccess
+                    ? const Icon(Icons.emoji_nature_outlined,
+                        size: 80, color: textColor)
+                    : const Icon(Icons.search, size: 80, color: textColor),
+                const SizedBox(height: 20),
+                Text(
                   state is SearchSuccess
-                      ? const Icon(Icons.emoji_nature_outlined,
-                          size: 80, color: textColor)
-                      : const Icon(Icons.search, size: 80, color: textColor),
-                  const SizedBox(height: 20),
-                  Text(
-                    state is SearchSuccess
-                        ? 'There are no found packages for the entered search criteria!'
-                        : 'Enter search keyword in order to find packages you are looking for.',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: textColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                      ? 'There are no found packages for the entered search criteria!'
+                      : 'Enter search keyword in order to find packages you are looking for.',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: textColor,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         }
