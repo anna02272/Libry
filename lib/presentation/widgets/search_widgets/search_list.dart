@@ -39,15 +39,11 @@ class _SearchListState extends State<SearchList>
         MediaQuery.of(context).orientation == Orientation.landscape;
     return BlocConsumer<SearchBloc, SearchState>(
       listener: (context, state) {
-        if (state is SearchSuccess) {
-          setState(() {
-            _showSearchList = state.libraries.isNotEmpty;
-          });
+        _showSearchList = state is SearchSuccess && state.libraries.isNotEmpty;
+        if (_showSearchList) {
           _animationController.forward();
         } else {
-          setState(() {
-            _showSearchList = false;
-          });
+          _animationController.reset();
         }
       },
       builder: (context, state) {
