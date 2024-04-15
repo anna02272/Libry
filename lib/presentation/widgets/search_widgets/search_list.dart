@@ -34,12 +34,6 @@ class _SearchListState extends State<SearchList>
   }
 
   @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocConsumer<SearchBloc, SearchState>(
       listener: (context, state) {
@@ -134,5 +128,11 @@ class _SearchListState extends State<SearchList>
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 }
