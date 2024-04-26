@@ -6,7 +6,6 @@ import 'package:flutter_internship_2024_app/main.dart' as app;
 
 void main() {
 
-//group('Sign in group of tests', () { 
   patrolTest('Successfull Sign up and Logout', ($) async {
 
       app.main();
@@ -20,7 +19,7 @@ void main() {
       expect($('Sign up').visible, equals(true), reason: 'Sign up button is not found before accessing Sign up form');
       await $('Sign up').tap();
 
-      await $(K.emailField).enterText('test33@gmail.com');
+      await $(K.emailField).enterText('milos@gmail.com');
       await $(K.passwordField).enterText('testing');
       await $(K.confirmPasswordField).enterText('testing');
 
@@ -110,7 +109,7 @@ void main() {
       expect($('Sign up').visible, equals(true), reason: 'Sign up button is not found before accessing Sign up form');
       await $('Sign up').tap();
 
-      await $(K.emailField).enterText('test@gmail.com');
+      await $(K.emailField).enterText('milos@gmail.com');
       await $(K.passwordField).enterText('testing');
       await $(K.confirmPasswordField).enterText('testing');
 
@@ -121,5 +120,5 @@ void main() {
 
       expect($('Email is already in use!').visible, equals(true), reason: 'Email error message is not visible');
   });
-//});
+
 }

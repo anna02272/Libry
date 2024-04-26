@@ -5,6 +5,7 @@ import 'package:flutter_internship_2024_app/presentation/widgets/library_webview
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/favorites_bloc/favorites_bloc.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/message_helper.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class LibraryHeaderDetails extends StatefulWidget {
   final Library library;
@@ -81,6 +82,7 @@ class _LibraryHeaderDetailsState extends State<LibraryHeaderDetails> {
                     Row(
                       children: [
                         IconButton(
+                          key: K.webView,
                           icon: const Icon(Icons.link),
                           onPressed: () {
                             Navigator.push(
@@ -93,6 +95,7 @@ class _LibraryHeaderDetailsState extends State<LibraryHeaderDetails> {
                           padding: const EdgeInsets.only(bottom: 2),
                         ),
                         IconButton(
+                          key: K.favorite,
                           icon: widget.library.isFavorite
                               ? const Icon(Icons.favorite)
                               : const Icon(Icons.favorite_border),

@@ -31,6 +31,10 @@ class Keys {
   //LIST OF PACKAGES SCREEN
   static const mpl = Key('mpl');
   static const nwl = Key('nwl');
+  static const package = Key('package');
+  static const favorite = Key('favorite');
+  static const webView = Key('keyView');
+  static const backWV = Key('backWV');
 
   //MY ACCOUNT KEYS
   static const changeTheme = Key('changeTheme');
