@@ -35,8 +35,8 @@ Future main() async {
   );
 
   if (kDebugMode) {
-    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+    // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
    }
 
   final prefsDataProvider = PrefsDataProvider();
