@@ -58,3 +58,20 @@ To install the Emulator Suite:
    ```bash
    flutter run
    ```
+
+
+### Install and setup Patrol testing framework
+
+1. To install Patrol testing framework follow installation guide below.
+[Installation guide](https://patrol.leancode.co/getting-started)
+
+
+## Steps to Launch Patrol tests
+
+1. Repeat steps five and six from above first
+
+2. Run following command to start Patrol tests:
+
+   ```bash
+   patrol test -t integration_test/example_test.dart
+   ```

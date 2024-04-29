@@ -18,7 +18,9 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     return Scaffold(
+      key: const Key('backBtn'),
       appBar: AppBar(
+        //key: const Key('backBtn'),
         title: Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
@@ -39,6 +41,7 @@ class _SearchScreenState extends State<SearchScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SearchInput(
+                  key: const Key('searchInputField'),
                   onTextChanged: (text) {
                     setState(() {
                       searchText = text;
@@ -46,6 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   },
                 ),
                 Expanded(
+                 key: const Key('searchList'),
                   child: SearchList(
                     searchText: searchText,
                     sort: sort,

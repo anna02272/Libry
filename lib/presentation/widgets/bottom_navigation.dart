@@ -4,6 +4,7 @@ import 'package:flutter_internship_2024_app/presentation/screens/favorites_scree
 import 'package:flutter_internship_2024_app/presentation/screens/my_account_screen.dart';
 import 'package:flutter_internship_2024_app/presentation/screens/platforms_screen.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -31,16 +32,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
         onDestinationSelected: _onItemTap,
         destinations: [
           NavigationDestination(
+              key: K.homeBtn,
               icon: Icon(
                 MdiIcons.packageVariantClosed,
               ),
               label: t.navigation_home),
           NavigationDestination(
+              key: K.favoritesBtn,
               icon: const Icon(
                 Icons.favorite_border,
               ),
               label: t.navigation_favorites),
           NavigationDestination(
+              key: K.accountBtn,
               icon: const Icon(
                 Icons.person,
               ),

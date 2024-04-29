@@ -6,6 +6,7 @@ import 'package:flutter_internship_2024_app/data/auth/repository/auth_repository
 import 'package:flutter_internship_2024_app/i18n/strings.g.dart';
 import 'package:flutter_internship_2024_app/presentation/screens/auth_screen.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/auth/form_field.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class ResetForm extends StatefulWidget {
   const ResetForm({super.key});
@@ -77,6 +78,7 @@ void _sendResetEmail(BuildContext context) {
                     if (!_messageSend)
                       Column(children: [
                         Text(
+                          key: K.forgotMessage,
                           textAlign: TextAlign.center,
                           t.reset_password_title,
                           style: TextStyle(
@@ -109,6 +111,7 @@ void _sendResetEmail(BuildContext context) {
                             },
                             style: Theme.of(context).textButtonTheme.style!,
                             child: Text(
+                              key: K.resetBtn,
                               t.reset_password_btn,
                               style: const TextStyle(fontSize: 16),
                             ),
@@ -132,6 +135,7 @@ void _sendResetEmail(BuildContext context) {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
+                            key: K.goBackBtn,
                               onPressed: () {
                                 Navigator.of(context).pop(MaterialPageRoute(
                                     builder: (context) => const AuthScreen()));

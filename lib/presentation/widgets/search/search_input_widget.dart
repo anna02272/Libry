@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_internship_2024_app/bloc/search_bloc/search_bloc.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class SearchInput extends StatefulWidget {
   final ValueChanged<String>? onTextChanged;
@@ -41,6 +42,7 @@ class _SearchInputState extends State<SearchInput> {
           children: [
             Expanded(
               child: TextField(
+                key: K.searchInputField,
                 autofocus: true,
                 controller: _controller,
                 focusNode: _focusNode,
@@ -64,6 +66,7 @@ class _SearchInputState extends State<SearchInput> {
                 _focusNode.unfocus();
               },
               child: Icon(
+                key: K.removeBtn,
                 Icons.close,
                 color: theme.colorScheme.onBackground,
               ),

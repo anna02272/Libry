@@ -6,6 +6,7 @@ import 'package:flutter_internship_2024_app/bloc/favorites_bloc/favorites_bloc.d
 import 'package:flutter_internship_2024_app/models/library.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/message_helper.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class LibrariesCardContet extends StatefulWidget {
   const LibrariesCardContet({super.key, required this.library});
@@ -92,6 +93,7 @@ class _LibrariesCardContetState extends State<LibrariesCardContet> {
                     SizedBox(
                       width:position ? screenWidth * 0.6 : screenWidth * 0.7 , 
                       child: Column(
+                        key: K.package,
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -179,6 +181,7 @@ class _LibrariesCardContetState extends State<LibrariesCardContet> {
                                   .add(FavoritesAdd(widget.library,user!));
                         },
                         child: Icon(
+                          key: K.removeFav,
                           widget.library.isFavorite
                               ? Icons.favorite
                               : Icons.favorite_border,
