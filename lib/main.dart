@@ -1,4 +1,5 @@
 
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ Future main() async {
 
   if (kDebugMode) {
     // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-    // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+   //FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
   }
 
   final prefsDataProvider = PrefsDataProvider();
@@ -105,7 +106,13 @@ class MyApp extends StatelessWidget {
                         if (snapshot.hasData) {
                           return const BottomNavigation();
                         }
-                        return  const Onbording();
+                        return  Navigator( 
+                        onGenerateRoute: (routeSettings) {
+                          return MaterialPageRoute(
+                            builder: (context) => const Onbording(),
+                          );
+                        },
+                      );
                       },
                     ),
                   ),
