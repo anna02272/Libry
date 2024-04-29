@@ -1,4 +1,5 @@
 
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -24,6 +25,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
@@ -35,7 +37,7 @@ Future main() async {
   if (kDebugMode) {
     await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
     FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-  }
+   }
 
   final prefsDataProvider = PrefsDataProvider();
   await prefsDataProvider.init();
@@ -91,6 +93,7 @@ class MyApp extends StatelessWidget {
               LocaleSettings.useDeviceLocale();
             }
             
+            
             return BlocBuilder<ThemeBloc, ThemeState>(
               builder: (context, state) {
                 return TranslationProvider(
@@ -106,7 +109,13 @@ class MyApp extends StatelessWidget {
                         if (snapshot.hasData) {
                           return const BottomNavigation();
                         }
-                        return  const Onbording();
+                        return  Navigator( 
+                        onGenerateRoute: (routeSettings) {
+                          return MaterialPageRoute(
+                            builder: (context) => const Onbording(),
+                          );
+                        },
+                      );
                       },
                     ),
                   ),
