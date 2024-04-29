@@ -181,6 +181,7 @@ class _LibrariesCardContetState extends State<LibrariesCardContet> {
                                   .add(FavoritesAdd(widget.library,user!));
                         },
                         child: Icon(
+                          key: K.removeFav,
                           widget.library.isFavorite
                               ? Icons.favorite
                               : Icons.favorite_border,

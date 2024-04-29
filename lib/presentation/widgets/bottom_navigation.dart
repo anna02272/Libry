@@ -38,6 +38,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               ),
               label: t.navigation_home),
           NavigationDestination(
+              key: K.favoritesBtn,
               icon: const Icon(
                 Icons.favorite_border,
               ),

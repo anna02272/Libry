@@ -18,11 +18,13 @@ class Keys {
   static const resetMessage = Key('resetMessage');//
   static const goBackBtn = Key('goBack');//
   static const reloadBtn = Key('reload');//
+  static const removeFav = Key('removeFav');
 
 
   //NAVIGATION BAR KEYS
   static const accountBtn = Key('account');
   static const homeBtn = Key('home');
+  static const favoritesBtn = Key('favorites');
 
   //SEARCH SCREEN
   static const searchBtn = Key('search');
@@ -39,6 +41,7 @@ class Keys {
 
   //MY ACCOUNT KEYS
   static const changeTheme = Key('changeTheme');
+  static const deleteBtn = Key('deleteBtn');
 
   //DO THE SAME FOR EMAIL I PASSWORD I WELCOME TO LIBRY FOR EXAMPLE
 

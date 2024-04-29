@@ -8,6 +8,7 @@ import 'package:flutter_internship_2024_app/i18n/strings.g.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/my_account/components/custom_dialog_widget.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/my_account/components/password_input_dialog.dart';
 import 'package:flutter_internship_2024_app/theme.dart';
+import 'package:flutter_internship_2024_app/keys.dart';
 
 class DeleteAccountButton extends StatelessWidget {
   const DeleteAccountButton({super.key, required this.user});
@@ -67,6 +68,7 @@ class DeleteAccountButton extends StatelessWidget {
                 }
               },
               child: Text(
+                key: K.deleteBtn,
                 t.delete_account,
                 style: const TextStyle(color: darkGreenColor, fontSize: 15),
               ),
