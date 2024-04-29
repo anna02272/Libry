@@ -1,6 +1,4 @@
-
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +25,6 @@ import 'firebase_options.dart';
 
 bool isOnboardingShown = false;
 
-
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
@@ -39,7 +36,7 @@ Future main() async {
   if (kDebugMode) {
     // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
     // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-   }
+  }
 
   final prefsDataProvider = PrefsDataProvider();
   await prefsDataProvider.init();
@@ -94,8 +91,7 @@ class MyApp extends StatelessWidget {
             } else {
               LocaleSettings.useDeviceLocale();
             }
-            
-            
+
             return BlocBuilder<ThemeBloc, ThemeState>(
               builder: (context, state) {
                 return TranslationProvider(
@@ -109,17 +105,18 @@ class MyApp extends StatelessWidget {
                       stream: FirebaseAuth.instance.authStateChanges(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
-                          isOnboardingShown=true;
+                          isOnboardingShown = true;
                           return const BottomNavigation();
-                          
                         }
-                        return  Navigator( 
-                        onGenerateRoute: (routeSettings) {
-                          return MaterialPageRoute(
-                            builder: (context) => isOnboardingShown ?  const AuthScreen() :const Onbording(),
-                          );
-                        },
-                      );
+                        return Navigator(
+                          onGenerateRoute: (routeSettings) {
+                            return MaterialPageRoute(
+                              builder: (context) => isOnboardingShown
+                                  ? const AuthScreen()
+                                  : const Onbording(),
+                            );
+                          },
+                        );
                       },
                     ),
                   ),
