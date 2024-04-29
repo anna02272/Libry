@@ -391,20 +391,13 @@ class _StringsSr implements Translations {
 	@override String get wrong_password => 'Pogrešna lozinka, pokušajte ponovo.';
 	@override String get too_many_requests => 'Previše puta ste poslali zahtev, pokušajte ponovo kasnije.';
   @override String get welcome_onboarding => 'Dobrodošli u Libry!';
-  @override
-    String get onborading_title_search => 'Pronađite idealnog saradnika za kodiranje!';
-  @override
-   String get onborading_title_details => 'Otkrijte detalje o paketu!';
-  @override
-   String get onborading_title_favorites => 'Vaša lista favorita!';
-  @override
-  String get onborading_description_welcome => 'Pripremite se za istraživanje sveta programskih alata! Vodićemo vas kroz raznovrstno okruženje alata predstavljajući vam osnovne pakete.';
-  @override
-   String get onborading_description_search => 'Krenite na putovanje istraživanja biblioteka uz našu intuitivnu pretragu. Brzo pronađite savršene biblioteke koje će unaprediti vaše projekte.';
-  @override
-   String get onborading_description_details => 'Istražite detaljne informacije o paketu kako biste unapredili svoje projekte. Zaronite u detaljne opise, verzije i dodatne informacije pomoću naše funkcije detalja o paketu.';
-  @override
-   String get onborading_description_favorites => 'Jednostavno dodajte i organizujte vaše preferirane biblioteke, a zatim uživajte u pristupu vašoj odabranoj listi kad god vam je potrebno.';
+  @override String get onborading_title_search => 'Pronađite idealnog saradnika za kodiranje!';
+  @override String get onborading_title_details => 'Otkrijte detalje o paketu!';
+  @override String get onborading_title_favorites => 'Vaša lista favorita!';
+  @override String get onborading_description_welcome => 'Pripremite se za istraživanje sveta programskih alata! Vodićemo vas kroz raznovrstno okruženje alata predstavljajući vam osnovne pakete.';
+  @override String get onborading_description_search => 'Krenite na putovanje istraživanja biblioteka uz našu intuitivnu pretragu. Brzo pronađite savršene biblioteke koje će unaprediti vaše projekte.';
+  @override String get onborading_description_details => 'Istražite detaljne informacije o paketu kako biste unapredili svoje projekte. Zaronite u detaljne opise, verzije i dodatne informacije pomoću naše funkcije detalja o paketu.';
+  @override String get onborading_description_favorites => 'Jednostavno dodajte vaše preferirane biblioteke, a zatim uživajte u pristupu vašoj odabranoj listi kad god vam je potrebno.';
 
 }
 
@@ -594,10 +587,10 @@ extension on _StringsSr {
       case 'onborading_title_search' : return 'Pronađite idealnog saradnika za kodiranje!';
       case 'onborading_title_details' : return 'Otkrijte detalje o paketu!';
       case 'onborading_title_favorites' : return 'Vaša lista favorita!';
-      case 'onborading_description_search' : return 'Krenite na putovanje istraživanja biblioteka uz našu intuitivnu pretragu. Brzo pronađite savršene biblioteke koje će unaprediti vaše projekte.';
       case 'onborading_description_welcome' : return "Pripremite se za istraživanje sveta programskih alata! Vodićemo vas kroz raznovrstno okruženje alata predstavljajući vam osnovne pakete";
-      case 'onborading_description_details' : return 'Istražite detaljne informacije o paketu kako biste unapredili svoje projekte. Zaronite u detaljne opise, verzije i dodatne informacije pomoću naše funkcije detalja o paketu';
-      case 'onborading_description_favorites' : return 'Jednostavno dodajte i organizujte vaše preferirane biblioteke, a zatim uživajte u pristupu vašoj odabranoj listi kad god vam je potrebno.';    
+      case 'onborading_description_search' : return 'Krenite na putovanje istraživanja biblioteka uz našu intuitivnu pretragu. Brzo pronađite savršene biblioteke koje će unaprediti vaše projekte.';
+      case 'onborading_description_details' : return 'Istražite detaljne informacije o paketu kako biste unapredili svoje projekte. Zaronite u detaljne opise, verzije i dodatne informacije pomoću naše funkcije detalja o paketu.';
+      case 'onborading_description_favorites' : return 'Jednostavno dodajte vaše preferirane biblioteke, a zatim uživajte u pristupu vašoj odabranoj listi kad god vam je potrebno.';    
 
 			default: return null;
 		}

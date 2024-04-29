@@ -37,8 +37,8 @@ Future main() async {
   );
 
   if (kDebugMode) {
-    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+    // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
    }
 
   final prefsDataProvider = PrefsDataProvider();
@@ -109,7 +109,9 @@ class MyApp extends StatelessWidget {
                       stream: FirebaseAuth.instance.authStateChanges(),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
+                          isOnboardingShown=true;
                           return const BottomNavigation();
+                          
                         }
                         return  Navigator( 
                         onGenerateRoute: (routeSettings) {
