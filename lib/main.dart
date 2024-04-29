@@ -19,11 +19,13 @@ import 'package:flutter_internship_2024_app/data/shared_preferences/prefs_data_p
 import 'package:flutter_internship_2024_app/data/shared_preferences/prefs_repository/prefs_repository.dart';
 import 'package:flutter_internship_2024_app/i18n/strings.g.dart';
 import 'package:flutter_internship_2024_app/onbording/onbording.dart';
+import 'package:flutter_internship_2024_app/presentation/screens/auth_screen.dart';
 import 'package:flutter_internship_2024_app/presentation/widgets/bottom_navigation.dart';
 import 'package:flutter_internship_2024_app/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+bool isOnboardingShown = false;
 
 
 Future main() async {
@@ -112,7 +114,7 @@ class MyApp extends StatelessWidget {
                         return  Navigator( 
                         onGenerateRoute: (routeSettings) {
                           return MaterialPageRoute(
-                            builder: (context) => const Onbording(),
+                            builder: (context) => isOnboardingShown ?  const AuthScreen() :const Onbording(),
                           );
                         },
                       );

@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_internship_2024_app/main.dart';
 import 'package:flutter_internship_2024_app/onbording/onbording_content.dart';
 import 'package:flutter_internship_2024_app/presentation/screens/auth_screen.dart';
 import 'package:flutter_internship_2024_app/theme.dart';
@@ -30,6 +31,7 @@ class _OnbordingState extends State<Onbording>{
               builder: (context) => const AuthScreen(),
             ),
           );
+           isOnboardingShown = true;
         },
         finishButtonText:  'Sign up',
         finishButtonTextStyle: const TextStyle(color: textColor),
