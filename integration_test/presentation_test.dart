@@ -15,10 +15,11 @@ void main() {
     await $.pumpAndSettle();
 
     //ONBOARDING SLIDES
-    await $('Skip').waitUntilVisible(timeout: const Duration(seconds: 15));
-    await $('Skip').tap();
+    // await $('Skip').waitUntilVisible(timeout: const Duration(seconds: 15));
+    // await $('Skip').tap();
+    await $.scrollUntilVisible(finder: $('Sign up'));
 
-    await $('Sign up').waitUntilVisible(timeout: const Duration(seconds: 15));
+    //await $('Sign up').waitUntilVisible(timeout: const Duration(seconds: 15));
     await $('Sign up').tap();
 
     //LOGIN FLOW
