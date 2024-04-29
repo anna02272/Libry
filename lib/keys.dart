@@ -6,6 +6,7 @@ class Keys {
   const Keys();
 
   //SIGN UP, LOGIN, FORGOT PASSWORD KEYS
+  static const nextBtn = Key('next');
   static const emailField = Key('email'); //
   static const passwordField = Key('password'); //
   static const confirmPasswordField = Key('confirmPassword');//

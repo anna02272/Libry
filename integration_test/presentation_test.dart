@@ -8,14 +8,18 @@ void main() {
   patrolTest('Presentation Patrol test', ($) async {
 
     //NATIVE
-    //await $.native.disableDarkMode();
+    await $.native.disableDarkMode();
 
     //APP INITIALIZATION
     app.main();
     await $.pumpAndSettle();
 
     //ONBOARDING SLIDES
+    await $('Skip').waitUntilVisible(timeout: const Duration(seconds: 15));
+    await $('Skip').tap();
 
+    await $('Sign up').waitUntilVisible(timeout: const Duration(seconds: 15));
+    await $('Sign up').tap();
 
     //LOGIN FLOW
     await $(K.loginBtn).waitUntilVisible(timeout: const Duration(seconds: 5));
@@ -54,7 +58,7 @@ void main() {
     await $('Perl').waitUntilVisible(timeout: const Duration(seconds: 30));
     expect($('Perl').visible, equals(true), reason: 'Perl is not visible');
 
-    await $(K.webView).tap();
+    //await $(K.webView).tap();
   });
 
 }
