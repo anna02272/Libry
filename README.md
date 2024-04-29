@@ -24,6 +24,10 @@ To install the Emulator Suite:
 1. Install the Firebase CLI.
 2. You will need CLI version 8.14.0 or higher to use the Emulator Suite. [Installation guide](https://firebase.google.com/docs/cli)
 
+### Install and setup Patrol testing framework
+
+1. To install Patrol testing framework follow installation guide below.
+[Installation guide](https://patrol.leancode.co/getting-started)
 
 ## Steps to Launch the Application 
 
@@ -47,24 +51,29 @@ To install the Emulator Suite:
    flutter pub get
    ```
 
-5. Before running the project in debug mode, start emulators with the following command:
+5.  If you're using emulators for testing in debug mode, before running the project:
+    - uncomment the following lines in main.dart:
 
-   ```bash
-   firebase emulators:start
+    ```bash
+      // import 'package:cloud_firestore/cloud_firestore.dart';
+    
+      if (kDebugMode) {
+        // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+        // FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+      }
     ```
-
+    
+     - start emulators with the following command:
+   
+      ```bash
+      firebase emulators:start
+       ```
+   
 6. Build and run the Flutter project on your device or emulator:
 
    ```bash
    flutter run
    ```
-
-
-### Install and setup Patrol testing framework
-
-1. To install Patrol testing framework follow installation guide below.
-[Installation guide](https://patrol.leancode.co/getting-started)
-
 
 ## Steps to Launch Patrol tests
 
