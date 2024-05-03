@@ -1,6 +1,5 @@
 # Libry - Package Manager App
-
-Libry is a package manager application designed to streamline package discovery and management for developers.
+LIBRY - The mobile app that provides users to explore and view the most popular software libraries. Users can browse through a selection of libraries, discover new ones, access detailed information about each, interact with the libraries by adding them to their favorites, viewing their source code repositories, and accessing related resources.
 
 ## Launch Guide
 
